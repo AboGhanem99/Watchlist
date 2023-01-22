@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import SearchBar from './SearchBar'
 
-export default function Header({setLogedIn, header, setHeader, input, setInput, logedIn, setShowLogin, setShowMovieslist, setShowWatchlist }) {
+export default function Header({setLogedIn, header, setHeader, input, setInput, logedIn, setShowLogin, setShowMovieslist, setShowWatchlist, setShowRegister }) {
 
     const [searchBar, setsearchBar] = useState()
     const [html, setHtml] = useState()
@@ -13,7 +13,6 @@ export default function Header({setLogedIn, header, setHeader, input, setInput, 
                     <main>
                         <h1>Find your film</h1>
                         <div>
-
                             {logedIn ? <p id="page" onClick={Watchlist}>Watchlist</p> : <p onClick={login} id="page">log in</p>}
                             {logedIn ? <div id='flex'> <p id="name">{localStorage.getItem('name')}</p> <p id='logout-img' onClick={logout}>❌</p> </div> : ""}
                         </div>
@@ -23,6 +22,7 @@ export default function Header({setLogedIn, header, setHeader, input, setInput, 
                 setShowWatchlist({ display: 'none' })
                 setShowMovieslist({ display: 'flex' })
                 setShowLogin({ display: 'none' })
+                setShowRegister({ display: 'none' })
                 break
 
             case "Watchlist":

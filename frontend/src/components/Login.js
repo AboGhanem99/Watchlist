@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-export default function Login({ setHeader, showLogin, setShowLogin, setShowRegister, setLogedIn, hostUrl}) {
+export default function Login({ setHeader, showLogin, setShowLogin, setShowRegister, setLogedIn}) {
 
     
 
@@ -62,7 +62,7 @@ export default function Login({ setHeader, showLogin, setShowLogin, setShowRegis
     }, [showLogin])
 
     const login = async (userData) => {
-        await fetch(`${hostUrl}/api/users/login`, {
+        await fetch(`/api/users/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

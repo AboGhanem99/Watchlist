@@ -14,7 +14,7 @@ export default function Movie(props) {
     },[props.showMovieslist])
 
     const addMovie = async (Mid) => {
-        await fetch(`${props.hostUrl}/api/watchlist/`, {
+        await fetch(`/api/watchlist/`, {
             method: 'GET',
             headers: {
                 'Content-type': 'application/json',
@@ -37,7 +37,7 @@ export default function Movie(props) {
         })
 
         if (!inWatchlist) {
-            await fetch(`${props.hostUrl}/api/watchlist/`, {
+            await fetch(`/api/watchlist/`, {
                 method: 'POST',
                 headers: {
                     'Content-type': 'application/json',

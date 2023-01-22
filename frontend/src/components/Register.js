@@ -1,6 +1,6 @@
 import { useState ,useEffect } from 'react'
 
-function Register({ showRegister, setShowRegister, setShowLogin, hostUrl }) {
+function Register({ showRegister, setShowRegister, setShowLogin }) {
 
     const [namePlaceHolder, setNamePlaceHolder] = useState('Enter your name')
     const [emilPlaceHolder, setEmilPlaceHolder] = useState('Enter your email')
@@ -95,7 +95,7 @@ function Register({ showRegister, setShowRegister, setShowLogin, hostUrl }) {
     }, [showRegister])
 
     const register = async (userData) => {
-        await fetch(`${hostUrl}/api/users`, {
+        await fetch(`/api/users`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

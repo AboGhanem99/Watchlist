@@ -9,7 +9,7 @@ export default function WatchlisMovie(props) {
 
     useEffect(() => {
         const getMovie = async () => {
-            await fetch(`${props.hostUrl}/api/movies/id/${props.Mid}`, {
+            await fetch(`/api/movies/id/${props.Mid}`, {
                 method: 'GET',
             }).then((response) => {
                 if (response.ok) {
@@ -26,7 +26,7 @@ export default function WatchlisMovie(props) {
     })
 
     const remove = async (Mid) => {
-        await fetch(`${props.hostUrl}/api/watchlist/`, {
+        await fetch(`/api/watchlist/`, {
             method: 'DELETE',
             headers: {
                 'Content-type': 'application/json',

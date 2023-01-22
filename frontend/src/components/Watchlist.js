@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import WatchlisMovie from './WatchlisMovie'
 
-export default function Watchlist({ showWatchlist, hostUrl }) {
+export default function Watchlist({ showWatchlist }) {
 
 
     const [warchlistDataId, setWarchlistDataId] = useState([])
     const [removed , setRemoved] = useState([])
 
     const getWatclist = async () => {
-        await fetch(`${hostUrl}/api/watchlist/`, {
+        await fetch(`/api/watchlist/`, {
             method: 'GET',
             headers: {
                 'Content-type': 'application/json',
@@ -31,7 +31,6 @@ export default function Watchlist({ showWatchlist, hostUrl }) {
             key={movie._id}
             {...movie} 
             setRemoved = {setRemoved}
-            hostUrl = {hostUrl}
         />
     })
 
