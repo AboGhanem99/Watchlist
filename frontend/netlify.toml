@@ -1,0 +1,6 @@
+[[redirects]]
+  from = "/search"
+  to = "https://watchlistbackend-production.up.railway.app"
+  status = 200
+  force = true
+  signed = "API_SIGNATURE_TOKEN_PLACEHOLDER"
