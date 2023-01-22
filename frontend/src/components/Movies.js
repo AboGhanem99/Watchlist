@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Movie from './Movie';
 
 
-function Posters({ input , showMovieslist,logedIn}) {
+function Posters({ input , showMovieslist, logedIn, hostUrl}) {
 
     const [moviesData, setMoviesData] = useState([])
     const movies = moviesData.map(movie => {
@@ -11,11 +11,12 @@ function Posters({ input , showMovieslist,logedIn}) {
             {...movie}
             logedIn = {logedIn}
             showMovieslist = {showMovieslist}
+            hostUrl = {hostUrl}
         />
     })
     useEffect(() => {
         const getData = async () => {
-            const tmp = await fetch(`/api/movies/${input || ""}`)
+            const tmp = await fetch(`${hostUrl}/api/movies/${input || ""}`)
             const response = await tmp.json()
             setMoviesData(response)
         }

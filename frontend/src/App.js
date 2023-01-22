@@ -8,7 +8,7 @@ import Register from "./components/Register"
 import { useState, useEffect } from 'react'
 
 
-// const hostUrl = 'http://localhost:5000'
+const hostUrl = 'https://watchlistbackend-production.up.railway.app'
 
 
 
@@ -34,10 +34,10 @@ function App() {
   return (
     <div>
       <Header  setShowRegister={setShowRegister} setLogedIn={setLogedIn} header={header} setHeader={setHeader} input={input} setInput={setInput} logedIn={logedIn} setShowLogin={setShowLogin} setShowMovieslist={setShowMovieslist} setShowWatchlist={setShowWatchlist} />
-      <Movies input={input} showMovieslist={showMovieslist} logedIn={logedIn} />
-      <Watchlist showWatchlist={showWatchlist} />
-      <Login  setHeader={setHeader} showLogin={showLogin} setShowLogin={setShowLogin} setShowRegister={setShowRegister} setLogedIn={setLogedIn} />
-      <Register  showRegister={showRegister} setShowRegister={setShowRegister} setShowLogin={setShowLogin} />
+      <Movies hostUrl = {hostUrl} input={input} showMovieslist={showMovieslist} logedIn={logedIn} />
+      <Watchlist  hostUrl = {hostUrl} showWatchlist={showWatchlist} />
+      <Login   hostUrl = {hostUrl} setHeader={setHeader} showLogin={showLogin} setShowLogin={setShowLogin} setShowRegister={setShowRegister} setLogedIn={setLogedIn} />
+      <Register   hostUrl = {hostUrl} showRegister={showRegister} setShowRegister={setShowRegister} setShowLogin={setShowLogin} />
     </div>
   )
 }

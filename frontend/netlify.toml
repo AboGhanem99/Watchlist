@@ -1,6 +1,0 @@
-[[redirects]]
-  from = " https://abos-watchlist.netlify.app/api/movies/"
-  to = "https://watchlistbackend-production.up.railway.app/api/movies/"
-  status = 200
-  force = true
-  signed = "API_SIGNATURE_TOKEN_PLACEHOLDER"
