@@ -1,6 +1,6 @@
 [[redirects]]
-  from = "https://abos-watchlist.netlify.app"
-  to = "https://watchlistbackend-production.up.railway.app"
+  from = "https://abos-watchlist.netlify.app/api"
+  to = "https://watchlistbackend-production.up.railway.app/api"
   status = 200
   force = true
   signed = "API_SIGNATURE_TOKEN_PLACEHOLDER"
