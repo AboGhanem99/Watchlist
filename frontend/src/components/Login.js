@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react'
-export default function Login({ setHeader, showLogin, setShowLogin, setShowRegister, setLogedIn }) {
+export default function Login({ setHeader, showLogin, setShowLogin, setShowRegister, setLogedIn, hostUrl}) {
+
+    
 
     const [emilPlaceHolder, setEmilPlaceHolder] = useState('Enter your email')
     const [passwordPlaceHolder, setPasswordPlaceHolder] = useState('Enter password')
-    const [emilBorder, SetEmilBorder] = useState({ 'border-color': 'black' })
-    const [passworBorder, SetPassworBorder] = useState({ 'border-color': 'black' })
+    const [emilBorder, SetEmilBorder] = useState({ 'borderColor': 'black' })
+    const [passworBorder, SetPassworBorder] = useState({ 'borderColor': 'black' })
     const [err, setErr] = useState()
 
 
@@ -25,16 +27,16 @@ export default function Login({ setHeader, showLogin, setShowLogin, setShowRegis
         e.preventDefault()
         setEmilPlaceHolder('Enter your email')
         setPasswordPlaceHolder('Enter password')
-        SetEmilBorder({ 'border-color': 'black' })
-        SetPassworBorder({ 'border-color': 'black' })
+        SetEmilBorder({ 'borderColor': 'black' })
+        SetPassworBorder({ 'borderColor': 'black' })
 
         if (!email) {
             setEmilPlaceHolder('Enter your email (Required)')
-            SetEmilBorder({ 'border-color': 'red' })
+            SetEmilBorder({ 'borderColor': 'red' })
         }
         if (!password) {
             setPasswordPlaceHolder('Enter your password (Required)')
-            SetPassworBorder({ 'border-color': 'red' })
+            SetPassworBorder({ 'borderColor': 'red' })
         }
         if (email && password) {
 
@@ -49,8 +51,8 @@ export default function Login({ setHeader, showLogin, setShowLogin, setShowRegis
     useEffect(() => {
         setEmilPlaceHolder('Enter your email')
         setPasswordPlaceHolder('Enter password')
-        SetEmilBorder({ 'border-color': 'black' })
-        SetPassworBorder({ 'border-color': 'black' })
+        SetEmilBorder({ 'borderColor': 'black' })
+        SetPassworBorder({ 'borderColor': 'black' })
         setErr()
         setFormData({
             email: '',
@@ -60,7 +62,7 @@ export default function Login({ setHeader, showLogin, setShowLogin, setShowRegis
     }, [showLogin])
 
     const login = async (userData) => {
-        await fetch("http://localhost:5000/api/users/login", {
+        await fetch(`${hostUrl}/api/users/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -102,7 +104,7 @@ export default function Login({ setHeader, showLogin, setShowLogin, setShowRegis
                             value={email}
                             placeholder={emilPlaceHolder}
                             onChange={onChange}
-                            autocomplete="off"
+                            autoComplete="off"
                         />
                     </div>
                     <div >
@@ -115,7 +117,7 @@ export default function Login({ setHeader, showLogin, setShowLogin, setShowRegis
                             value={password}
                             placeholder={passwordPlaceHolder}
                             onChange={onChange}
-                            autocomplete="off"
+                            autoComplete="off"
                         />
                     </div>
                     <div >

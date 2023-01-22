@@ -1,16 +1,16 @@
 import { useState ,useEffect } from 'react'
 
-function Register({ showRegister, setShowRegister, setShowLogin }) {
+function Register({ showRegister, setShowRegister, setShowLogin, hostUrl }) {
 
     const [namePlaceHolder, setNamePlaceHolder] = useState('Enter your name')
     const [emilPlaceHolder, setEmilPlaceHolder] = useState('Enter your email')
     const [password1PlaceHolder, setPassword1PlaceHolder] = useState('Enter password')
     const [password2PlaceHolder, setPassword2PlaceHolder] = useState('Confirm password')
 
-    const [nameBorder, SetNameBorder] = useState({ 'border-color': 'black' })
-    const [emilBorder, SetEmilBorder] = useState({ 'border-color': 'black' })
-    const [passwor1Border, SetPasswor1Border] = useState({ 'border-color': 'black' })
-    const [passwor2Border, SetPasswor2Border] = useState({ 'border-color': 'black' })
+    const [nameBorder, SetNameBorder] = useState({ 'borderColor': 'black' })
+    const [emilBorder, SetEmilBorder] = useState({ 'borderColor': 'black' })
+    const [passwor1Border, SetPasswor1Border] = useState({ 'borderColor': 'black' })
+    const [passwor2Border, SetPasswor2Border] = useState({ 'borderColor': 'black' })
 
     const [err, setErr] = useState()
 
@@ -37,33 +37,33 @@ function Register({ showRegister, setShowRegister, setShowLogin }) {
         setEmilPlaceHolder('Enter your email')
         setPassword1PlaceHolder('Enter password')
         setPassword2PlaceHolder('Confirm password')
-        SetNameBorder({ 'border-color': 'black' })
-        SetEmilBorder({ 'border-color': 'black' })
-        SetPasswor1Border({ 'border-color': 'black' })
-        SetPasswor2Border({ 'border-color': 'black' })
+        SetNameBorder({ 'borderColor': 'black' })
+        SetEmilBorder({ 'borderColor': 'black' })
+        SetPasswor1Border({ 'borderColor': 'black' })
+        SetPasswor2Border({ 'borderColor': 'black' })
 
 
         if(!name){
             setNamePlaceHolder('Enter your email (Required)')
-            SetNameBorder({ 'border-color': 'red' })
+            SetNameBorder({ 'borderColor': 'red' })
         } 
         if (!email) {
             setEmilPlaceHolder('Enter your email (Required)')
-            SetEmilBorder({ 'border-color': 'red' })
+            SetEmilBorder({ 'borderColor': 'red' })
         }
         if (!password) {
             setPassword1PlaceHolder('Enter your password (Required)')
-            SetPasswor1Border({ 'border-color': 'red' })
+            SetPasswor1Border({ 'borderColor': 'red' })
         }
         if (!password2) {
             setPassword2PlaceHolder('Enter your password (Required)')
-            SetPasswor2Border({ 'border-color': 'red' })
+            SetPasswor2Border({ 'borderColor': 'red' })
         }
 
         e.preventDefault()
         if ((password !== password2) && name && email && password && password2 ) {
             setErr(<h1>The password doesn't match</h1>)
-            SetPasswor2Border({ 'border-color': 'red' })
+            SetPasswor2Border({ 'borderColor': 'red' })
         } else if(name && email && password) {
             const userData = {
                 name,
@@ -79,10 +79,10 @@ function Register({ showRegister, setShowRegister, setShowLogin }) {
         setEmilPlaceHolder('Enter your email')
         setPassword1PlaceHolder('Enter password')
         setPassword2PlaceHolder('Confirm password')
-        SetNameBorder({ 'border-color': 'black' })
-        SetEmilBorder({ 'border-color': 'black' })
-        SetPasswor1Border({ 'border-color': 'black' })
-        SetPasswor2Border({ 'border-color': 'black' })
+        SetNameBorder({ 'borderColor': 'black' })
+        SetEmilBorder({ 'borderColor': 'black' })
+        SetPasswor1Border({ 'borderColor': 'black' })
+        SetPasswor2Border({ 'borderColor': 'black' })
         setErr()
 
         setFormData({
@@ -95,7 +95,7 @@ function Register({ showRegister, setShowRegister, setShowLogin }) {
     }, [showRegister])
 
     const register = async (userData) => {
-        await fetch("http://localhost:5000/api/users", {
+        await fetch(`${hostUrl}/api/users`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -127,7 +127,7 @@ function Register({ showRegister, setShowRegister, setShowLogin }) {
                             value={name}
                             placeholder= {namePlaceHolder}
                             style={nameBorder}
-                            autocomplete="off"
+                            autoComplete="off"
                             onChange={onChange}
                         />
                     </div>
@@ -138,7 +138,7 @@ function Register({ showRegister, setShowRegister, setShowLogin }) {
                             value={email}
                             placeholder={emilPlaceHolder}
                             style={emilBorder}
-                            autocomplete="off"
+                            autoComplete="off"
                             onChange={onChange}
                         />
                     </div>
@@ -149,7 +149,7 @@ function Register({ showRegister, setShowRegister, setShowLogin }) {
                             value={password}
                             placeholder={password1PlaceHolder}
                             style={passwor1Border}
-                            autocomplete="off"
+                            autoComplete="off"
                             onChange={onChange}
                         />
                     </div>
@@ -160,7 +160,7 @@ function Register({ showRegister, setShowRegister, setShowLogin }) {
                             value={password2}
                             placeholder= {password2PlaceHolder}
                             style={passwor2Border}
-                            autocomplete="off"
+                            autoComplete="off"
                             onChange={onChange}
                         />
                     </div>
